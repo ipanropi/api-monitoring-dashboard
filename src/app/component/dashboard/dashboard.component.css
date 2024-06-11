@@ -1,0 +1,6 @@
+.dashboard-container{
+    .container{
+        border-width: 2px;
+        display: flex;
+    }
+}
