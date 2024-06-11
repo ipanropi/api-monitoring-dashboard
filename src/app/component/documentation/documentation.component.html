@@ -1,6 +1,6 @@
-<div class="documentation">
+<div class="documentation-container">
     <button>Add New</button>
-    <table class="auto">
+    <table class="table-fixed">
         <thead>
             <tr>
                 <th>No</th>
@@ -10,12 +10,16 @@
             </tr>  
         </thead>
         <tbody>
-            <tr>
-            <td>No</td>
-            <td>File Name</td>
-            <td>Last Uploaded</td>
-            <td>Action</td>
-        </tr>
+            <tr *ngFor="let document of documentList">
+                <td>No</td>
+                <td>{{ document.FileName }}</td>
+                <td>{{ document.LastUploaded }}</td>
+                <td style="display: flex;">
+                    <img src="/assets/icon/download.svg" alt="">
+                    <img src="/assets/icon/upload.svg" alt="">
+                    <img src="/assets/icon/delete.svg" alt="">
+                </td>
+            </tr>
         </tbody>
 
     </table>

@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./documentation.component.css']
 })
 export class DocumentationComponent implements OnInit {
+  documentList=[
+    {FileName: "BMW API Document V.0.01", LastUploaded: "25/03/2024"}
+
+  ];
+
 
   constructor() { }
 

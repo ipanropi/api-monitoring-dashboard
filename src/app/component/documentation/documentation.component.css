@@ -1,0 +1,31 @@
+.documentation-container{
+padding-left: 4%;
+padding-top: 2%;
+
+}
+table{
+    width: 85%;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 11px;
+    thead{
+        background-color: rgb(240, 240, 240);
+        :nth-child(1){
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        :nth-last-child(1){
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+    }
+    td{
+        img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+    th, td{
+        padding: 15px 25px;
+    }
+}
