@@ -43,12 +43,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let email of alertEmailList">
-                        <td>No</td>
+                    <tr *ngFor="let email of alertEmailList; let i = index">
+                        <td>{{ i + 1 }}</td>
                         <td>{{ email.Subject }}</td>
                         <td>{{ email.Recipient }}</td>
                         <td>{{ email.DateSent }}</td>
-                    </tr>
+                      </tr>
                 </tbody>
             </table>
         </div>

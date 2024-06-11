@@ -3,4 +3,10 @@
         border-width: 2px;
         display: flex;
     }
+    .issue{
+        background-color: #FFA1A1;
+    }
+    .normal{
+        background-color: #A2F0AA;
+    }
 }

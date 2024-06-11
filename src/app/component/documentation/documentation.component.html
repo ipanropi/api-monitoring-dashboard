@@ -16,8 +16,8 @@
             </tr>  
         </thead>
         <tbody>
-            <tr *ngFor="let document of documentList">
-                <td>No</td>
+            <tr *ngFor="let document of documentList; let i=index;">
+                <td>{{ i + 1 }}</td>
                 <td>{{ document.FileName }}</td>
                 <td>{{ document.LastUploaded }}</td>
                 <td style="display: flex;">

@@ -15,7 +15,10 @@ import { DocumentationAddNewFileComponent } from './component/documentation/docu
     AppComponent,
     DocumentationComponent,
     NavbarComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    DashboardComponent,
+    SettingsComponent,
+    DocumentationAddNewFileComponent
   ],
   imports: [
     BrowserModule,
