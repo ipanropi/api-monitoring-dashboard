@@ -1,10 +1,13 @@
 .documentation-container{
-padding-left: 4%;
-padding-top: 2%;
-
+    padding: 2% 4%;
+    .add-new-btn{
+        border-radius: 10px;
+        background-color: #4994BE;
+        color: #FFFFFF;
+    }
 }
 table{
-    width: 85%;
+    width: 100%;
     border-radius: 20px;
     text-align: left;
     font-size: 11px;
