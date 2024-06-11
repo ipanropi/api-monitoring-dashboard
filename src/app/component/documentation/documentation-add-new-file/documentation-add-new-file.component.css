@@ -1,0 +1,41 @@
+.documentation-add-file-container{
+    padding: 2% 4%;
+    .title-row{
+        justify-content: space-between;
+        .btn{
+            color: #FFFFFF;
+            border-radius: 15px;
+            padding: 10px 2vw;
+            margin-left: 5px;
+            font-size: 11px;
+        }
+        .cancel-btn{
+            background-color: #FA6868;
+        }
+        .submit-btn{
+            background-color: #3FA93D;
+        }
+    }
+    .text-area{
+        border-color: #000000;
+        border-width: 1px;
+    }
+
+    input{
+        width: 33%;
+        min-width: 200px;
+        height: 35px;
+        border-radius: 15px;
+        padding-left: 15px;
+    }
+
+    p{
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    h1{
+        font-size: 18px;
+        font-weight: bold;
+    }
+}

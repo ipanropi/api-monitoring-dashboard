@@ -1,8 +1,10 @@
 <div class="documentation-container">
     <div class="flex justify-end">
-        <button class="add-new-btn mb-3">
-            <div class="m-2">Add New</div>
-        </button>
+        <a routerLink="/documentation/newfile">
+            <button class="add-new-btn mb-3">
+                <div class="m-2">Add New</div>
+            </button>
+        </a>
     </div>
     <table class="table-fixed">
         <thead>
@@ -19,7 +21,7 @@
                 <td>{{ document.FileName }}</td>
                 <td>{{ document.LastUploaded }}</td>
                 <td style="display: flex;">
-                    <a routerLink=""></a>
+                    
                     <img src="/assets/icon/download.svg" alt="">
                     <img src="/assets/icon/upload.svg" alt="">
                     <img src="/assets/icon/delete.svg" alt="">
