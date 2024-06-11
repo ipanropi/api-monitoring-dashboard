@@ -8,7 +8,6 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'api-monitoring';
   title: string = '';
 
   private titles: { [key: string]: string } = {
@@ -23,5 +22,10 @@ export class AppComponent {
     ).subscribe((event: NavigationEnd) => {
       this.title = this.titles[event.urlAfterRedirects] || 'API Monitoring Dashboard';
     });
+  }
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

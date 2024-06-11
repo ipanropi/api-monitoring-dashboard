@@ -1,9 +1,35 @@
-<div class="flex">
-  <app-left-menu></app-left-menu>
-  <div class="flex flex-col w-full">
-    <div class="title-container">
+<div class="grid grid-cols-12 gap-1">
+  <!-- Left Menu -->
+  <div class="hidden sm:block col-span-4 lg:col-span-3">
+    <app-left-menu></app-left-menu>
+  </div>
+  <!-- Hamburger Menu for Small Screens -->
+  <div class="block sm:hidden col-span-1">
+    <img
+      src="/assets/icon/hamburger.svg"
+      alt="Menu"
+      (click)="toggleMenu()"
+      class="cursor-pointer"
+    />
+  </div>
+  <!-- Main Content -->
+  <div class="flex flex-col col-span-8 lg:col-span-9">
+    <div class="flex flex-col w-full">
+      <div class="title-container">
         <h1 class="m-3 text-2xl font-bold">{{ title }}</h1>
+      </div>
     </div>
     <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Overlay Menu for Small Screens -->
+<div
+  *ngIf="isMenuOpen"
+  class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-left z-50 sm:hidden"
+>
+  <div class="bg-white p-4 w-3/4 h-full">
+    <button (click)="toggleMenu()" class="text-right w-full">Close</button>
+    <app-left-menu></app-left-menu>
   </div>
 </div>
