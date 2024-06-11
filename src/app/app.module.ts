@@ -7,6 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { DocumentationComponent } from './component/documentation/documentation.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LeftMenuComponent } from './component/left-menu/left-menu.component';
+import { DocumentationAddNewFileComponent } from './component/documentation/documentation-add-new-file/documentation-add-new-file.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeftMenuComponent } from './component/left-menu/left-menu.component';
     HomeComponent,
     DocumentationComponent,
     NavbarComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    DocumentationAddNewFileComponent
   ],
   imports: [
     BrowserModule,
