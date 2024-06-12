@@ -45,6 +45,8 @@
     "file-saver": "^2.0.5",
     "flag-icon-css": "^3.4.5",
     "font-awesome": "^4.7.0",
+    "highcharts": "^10.0.0",
+    "highcharts-angular": "^3.0.0",
     "intl-tel-input": "^17.0.21",
     "json2csv": "^5.0.7",
     "moment": "^2.26.0",

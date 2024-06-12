@@ -14,6 +14,22 @@
       
       .item1 {
         grid-column: span 4; /* Full width for div1 */
+        .status-container{
+            justify-content: space-between;
+            .status{
+                width: 150px;
+                padding: 15px 25px;
+                border-radius: 15px;
+                box-shadow: 0px 3px 5px #727272;
+
+            }
+            .issue{
+                background-color: #FFA1A1;
+            }
+            .normal{
+                background-color: #A2F0AA;
+            }
+        }
       }
       
       .item2 {
@@ -35,13 +51,22 @@
       .item6 {
         grid-column: span 2; /* Take one-third of the width */
       }
-    .issue{
-        background-color: #FFA1A1;
-    }
-    .normal{
-        background-color: #A2F0AA;
-    }
+
     h1{
         font-weight: bold;
+    }
+
+    h2{
+        font-style: oblique;
+    }
+
+    
+
+    .text-center{
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }

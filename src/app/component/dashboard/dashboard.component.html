@@ -1,12 +1,22 @@
 <div class="dashboard-container">
     <div class="grid-item item1">
         <h1>Service Status</h1>
-        <div class="flex">
-            <div>Check Health</div>
-            <div>Create/Update Case</div>
-            <div>Get Case Assistance</div>
-            <div>Create Token</div>
-            <div>Get Tracking</div>
+        <div class="status-container flex">
+            <div class="status issue text-center">
+                <h2>Check Health</h2>
+            </div>
+            <div class="status issue text-center">
+                <h2>Create/Update Case</h2>
+            </div>
+            <div class="status issue text-center">
+                <h2>Get Case Assistance</h2>
+            </div>
+            <div class="status issue text-center">
+                <h2>Create Token</h2>
+            </div>
+            <div class="status issue text-center">
+                <h2>Get Tracking</h2>
+            </div>
         </div>
     </div>
         <div class="grid-item item2">
@@ -27,6 +37,12 @@
         </div>
         <div class="grid-item item4">
             <h1>Daily API Usage</h1>
+            <highcharts-chart 
+            [Highcharts]="Highcharts"
+            [options]="chartOptions"
+
+            style="width: 100%; height: 400px; display: block;"
+            ></highcharts-chart>
         </div>
         <div class="grid-item item5">
             <h1>Alert Emails</h1>
@@ -52,11 +68,26 @@
         <div class="grid-item item6">
             <h1>Error Rates</h1>
             <div class="flex">
-                <div>Check Health</div>
-                <div>Create/Update Case</div>
-                <div>Get Case Assistance</div>
-                <div>Create Token</div>
-                <div>Get Tracking</div>
+                <div>
+                    <h2></h2>
+                    <!-- Check Health -->
+                </div>
+                <div>
+                    <h2></h2>
+                    <!-- Create/Update Case -->
+                </div>
+                <div>
+                    <h2></h2>
+                    <!-- Get Case Assistance -->
+                </div>
+                <div>
+                    <h2></h2>
+                    <!-- Create Token -->
+                </div>
+                <div>
+                    <h2></h2>
+                    <!-- Get Tracking -->
+                </div>
             </div>
         </div>
 </div>

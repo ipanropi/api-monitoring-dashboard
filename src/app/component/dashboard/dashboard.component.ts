@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,13 @@ export class DashboardComponent implements OnInit {
     { Subject: "Create Case API - Threshold", Recipient: "putrashazrein@57codebox.com", DateSent: "25/03/2024" }
   ];
 
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    series: [{
+      data: [1, 2, 3],
+      type: 'line'
+    }]
+  };
   constructor() { }
 
   ngOnInit(): void {
