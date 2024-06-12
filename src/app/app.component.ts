@@ -12,7 +12,8 @@ export class AppComponent {
 
   private titles: { [key: string]: string } = {
     '/documentation': 'Documentation',
-    '/settings': 'Settings'
+    '/documentation/newfile': 'Documentation',
+    '/settings': 'Setting',
     // Add more routes and titles as needed
   };
   constructor(private router: Router) {}

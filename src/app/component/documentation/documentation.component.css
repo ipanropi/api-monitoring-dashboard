@@ -1,0 +1,47 @@
+.documentation-container{
+    padding: 2% 4%;
+    .add-new-btn{
+        border-radius: 10px;
+        background-color: #4994BE;
+        color: #FFFFFF;
+    }
+}
+table{
+    width: 100%;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 11px;
+    border-collapse: collapse;
+    thead{
+        background-color: rgb(240, 240, 240);
+        th {
+            border-right: 1px solid #000000; /* Add a right border */
+        }
+        :nth-child(1){
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        :nth-last-child(1){
+            border-right: none;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+    }
+    td{
+        img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+    th, td{
+        padding: 15px 25px;
+    }
+    th:nth-child(1),td:nth-child(1){
+        width: 5%;
+    }
+    th:nth-child(2),td:nth-child(2){
+        width: 65%;
+    }
+
+
+}

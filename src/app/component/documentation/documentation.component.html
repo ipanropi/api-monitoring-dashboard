@@ -1,6 +1,12 @@
-<div class="documentation">
-    <button>Add New</button>
-    <table class="auto">
+<div class="documentation-container">
+    <div class="flex justify-end">
+        <a routerLink="/documentation/newfile">
+            <button class="add-new-btn mb-3">
+                <div class="m-2">Add New</div>
+            </button>
+        </a>
+    </div>
+    <table class="table-fixed">
         <thead>
             <tr>
                 <th>No</th>
@@ -10,12 +16,17 @@
             </tr>  
         </thead>
         <tbody>
-            <tr>
-            <td>No</td>
-            <td>File Name</td>
-            <td>Last Uploaded</td>
-            <td>Action</td>
-        </tr>
+            <tr *ngFor="let document of documentList; let i=index;">
+                <td>{{ i + 1 }}</td>
+                <td>{{ document.FileName }}</td>
+                <td>{{ document.LastUploaded }}</td>
+                <td style="display: flex;">
+                    
+                    <img src="/assets/icon/download.svg" alt="">
+                    <img src="/assets/icon/upload.svg" alt="">
+                    <img src="/assets/icon/delete.svg" alt="">
+                </td>
+            </tr>
         </tbody>
 
     </table>
