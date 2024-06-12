@@ -31,7 +31,6 @@ import {RouterModule} from "@angular/router";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HighchartsChartModule,
     AppRoutingModule,
     RouterModule
   ],
