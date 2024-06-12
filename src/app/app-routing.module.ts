@@ -14,8 +14,6 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent},
   { path: 'documentation', component: DocumentationComponent},
   { path: 'documentation/newfile', component: DocumentationAddNewFileComponent},
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'documentation', component: DocumentationComponent },
   { path: 'settings', component: SettingsComponent, children: [
       { path: 'email', component: EmailConfigurationComponent },
       { path: 'interval-rate', component: IntervalRateComponent }

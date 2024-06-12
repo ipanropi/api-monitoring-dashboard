@@ -2,38 +2,88 @@
     <div class="grid-item item1">
         <h1>Service Status</h1>
         <div class="status-container flex">
-            <div class="status issue text-center">
+            <div class="status normal text-center">
                 <h2>Check Health</h2>
             </div>
-            <div class="status issue text-center">
+            <div class="status normal text-center">
                 <h2>Create/Update Case</h2>
             </div>
-            <div class="status issue text-center">
+            <div class="status normal text-center">
                 <h2>Get Case Assistance</h2>
             </div>
             <div class="status issue text-center">
                 <h2>Create Token</h2>
             </div>
-            <div class="status issue text-center">
+            <div class="status normal text-center">
                 <h2>Get Tracking</h2>
             </div>
         </div>
     </div>
         <div class="grid-item item2">
             <h1>Response Time(ms)</h1>
-            <div>Check Health</div>
-            <div>Create/Update Case</div>
-            <div>Get Case Assistance</div>
-            <div>Create Token</div>
-            <div>Get Tracking</div>
+            <div class="response-time-container">
+                <h1>Check Health</h1>
+                <div class="response-time text-center"> 
+                    <h1>23 ms</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>Create/Update Case</h1>
+                <div class="response-time text-center">
+                    <h1>25 ms</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>Get Case Assistance</h1>
+                <div class="response-time text-center">
+                    <h1>32 ms</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>Create Token</h1>
+                <div class="response-time text-center">
+                    <h1>-</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>Get Tracking</h1>
+                <div class="response-time text-center">
+                    <h1>15ms</h1>
+                </div>
+            </div>
         </div>
         <div class="grid-item item3">
             <h1>HTTP Status Codes</h1>
-            <div>Check Health</div>
-            <div>Create/Update Case</div>
-            <div>Get Case Assistance</div>
-            <div>Create Token</div>
-            <div>Get Tracking</div>
+            <div class="response-time-container">
+                <h1>200</h1>
+                <div class="response-time text-center"> 
+                    <h1>2</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>201</h1>
+                <div class="response-time text-center">
+                    <h1>0</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>404</h1>
+                <div class="response-time text-center">
+                    <h1>0</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>500</h1>
+                <div class="response-time text-center">
+                    <h1>3</h1>
+                </div>
+            </div>
+            <div class="response-time-container">
+                <h1>100</h1>
+                <div class="response-time text-center">
+                    <h1>0</h1>
+                </div>
+            </div>
         </div>
         <div class="grid-item item4">
             <h1>Daily API Usage</h1>
@@ -67,26 +117,21 @@
         </div>
         <div class="grid-item item6">
             <h1>Error Rates</h1>
-            <div class="flex">
-                <div>
-                    <h2></h2>
-                    <!-- Check Health -->
+            <div class="flex stat-container">
+                <div class="stat create-update">
+                    <h2>0</h2>
                 </div>
-                <div>
-                    <h2></h2>
-                    <!-- Create/Update Case -->
+                <div class="stat get-case-assistance">
+                    <h2>0</h2>
                 </div>
-                <div>
-                    <h2></h2>
-                    <!-- Get Case Assistance -->
+                <div class="stat create-token">
+                    <h2>3</h2>
                 </div>
-                <div>
-                    <h2></h2>
-                    <!-- Create Token -->
+                <div class="stat check-health">
+                    <h2>6</h2>
                 </div>
-                <div>
-                    <h2></h2>
-                    <!-- Get Tracking -->
+                <div class="stat get-tracking">
+                    <h2>2</h2>
                 </div>
             </div>
         </div>
