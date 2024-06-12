@@ -8,12 +8,29 @@
             padding: 10px 2vw;
             margin-left: 5px;
             font-size: 11px;
+            border-width: 2px;
         }
         .cancel-btn{
             background-color: #FA6868;
+            border-color: #FA6868;
+        }
+        .cancel-btn:hover{
+            background-color: #c55252;
+            border-color: #c55252;
+        }
+        .cancel-btn:active{
+            border-color: #FA6868;
         }
         .submit-btn{
             background-color: #3FA93D;
+            border-color: #3FA93D;
+        }
+        .submit-btn:hover{
+            background-color: #2d792c;
+            border-color: #2d792c;
+        }
+        .submit-btn:active{
+            border-color: #3FA93D;
         }
     }
     .text-area{

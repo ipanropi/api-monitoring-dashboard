@@ -3,7 +3,16 @@
     .add-new-btn{
         border-radius: 10px;
         background-color: #4994BE;
+        border-color: #4994BE;
+        border-width: 3px;
         color: #FFFFFF;
+    }
+    .add-new-btn:hover{
+        background-color: #336582;
+        border-color: #336582;
+    }
+    .add-new-btn:active{
+        border-color: #4994BE;
     }
 }
 table{
