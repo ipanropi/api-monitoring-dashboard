@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HighchartsChartModule } from 'highcharts-angular';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DocumentationComponent } from './component/documentation/documentation.component';
@@ -14,6 +12,9 @@ import { DocumentationAddNewFileComponent } from './component/documentation/docu
 import {EmailConfigurationComponent} from "./component/email-configuration/email-configuration.component";
 import {IntervalRateComponent} from "./component/interval-rate/interval-rate.component";
 import {RouterModule} from "@angular/router";
+import { ReportComponent } from './component/report/report.component';
+import {FormsModule} from "@angular/forms";
+import { NgxAceEditorComponent } from './component/ngx-ace-editor/ngx-ace-editor.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,17 @@ import {RouterModule} from "@angular/router";
     LeftMenuComponent,
     EmailConfigurationComponent,
     IntervalRateComponent,
-    SettingsComponent
+    SettingsComponent,
+    ReportComponent,
+    NgxAceEditorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HighchartsChartModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -26,9 +26,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ace-builds/src-noconflict/theme-chrome.js"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ace-builds/src-noconflict/ace.js",
+              "node_modules/ace-builds/src-noconflict/ext-language_tools.js"
+            ]
           },
           "configurations": {
             "production": {

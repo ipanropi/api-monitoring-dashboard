@@ -6,6 +6,7 @@ import {DocumentationAddNewFileComponent} from "./component/documentation/docume
 import {SettingsComponent} from "./component/settings/settings.component";
 import {EmailConfigurationComponent} from "./component/email-configuration/email-configuration.component";
 import {IntervalRateComponent} from "./component/interval-rate/interval-rate.component";
+import {ReportComponent} from "./component/report/report.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent, children: [
       { path: 'email', component: EmailConfigurationComponent },
       { path: 'interval-rate', component: IntervalRateComponent }
-    ]}
+    ]},
+  { path: 'reporting', component: ReportComponent}
 ];
 
 @NgModule({

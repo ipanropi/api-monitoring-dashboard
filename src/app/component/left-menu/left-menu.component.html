@@ -1,4 +1,4 @@
-<div class="flex flex-col sm:border-r-2 sm:p-4 min-h-screen gap-4">
+<div class="flex flex-col flex-1 sm:p-4 min-h-screen gap-4">
   <div class="flex gap-1 items-center">
     <img class="m-2 w-8 h-8" src="/assets/icon/user.svg" alt="User">
     <p class="text-md lg:text-xl">Putra</p>
@@ -51,6 +51,12 @@
           </a>
         </ul>
       </div>
+      <a routerLink="/reporting">
+        <li [ngClass]="{'bg-gray-100': isActive('/reporting'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-11 py-2 text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+          <img class="w-6 h-6" src="/assets/icon/document.svg" alt="">
+          Reporting
+        </li>
+      </a>
     </ul>
   </div>
 </div>
