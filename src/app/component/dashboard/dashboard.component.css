@@ -1,8 +1,40 @@
 .dashboard-container{
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 4fr; /* Three equal columns */
+    grid-template-rows: auto; /* Adjust row heights automatically */
     .container{
         border-width: 2px;
         display: flex;
     }
+
+    .grid-item {
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+      
+      .item1 {
+        grid-column: span 4; /* Full width for div1 */
+      }
+      
+      .item2 {
+        grid-column: span 1; /* Take one-third of the width */
+      }
+      
+      .item3 {
+        grid-column: span 2; /* Take one-third of the width */
+      }
+      
+      .item4 {
+        grid-column: span 1; /* Take one-third of the width */
+      }
+      
+      .item5 {
+        grid-column: span 2; /* Take two-thirds of the width */
+      }
+      
+      .item6 {
+        grid-column: span 2; /* Take one-third of the width */
+      }
     .issue{
         background-color: #FFA1A1;
     }
