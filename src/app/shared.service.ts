@@ -53,4 +53,15 @@ export class SharedService {
   deleteDocumentrequest(index:number){
     this.documents.splice(index, 1);
   }
+
+  checkValidName(name:string){
+    // Iterate over the documents array
+    for (let index = 0; index < this.documents.length; index++) {
+      // Check if the current document's name matches the provided name
+      if (name === this.documents[index].documentName) {
+        return false; // Name already exists, return false
+      }
+    }
+    return true; // Name does not exist in the documents, return true
+  }
 }
