@@ -10,14 +10,13 @@
         (textChange)="handleTextChange($event)">
       </app-ngx-ace-editor>
     </div>
-    <div class="flex gap-4 items-center justify-end">
-      <div class="mb-6">
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center sm:justify-end">
+      <div class="w-full md:w-auto">
         <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900">Query Name</label>
         <input [(ngModel)]="queryName" type="text" id="default-input" placeholder="Enter Query Name" class="bg-[#FEFEFE] border border-black text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
       </div>
-
-      <div>
-        <button (click)="saveQuery()" type="button" class="border text-white bg-[#3FA93D] hover:bg-[#36832F] focus:outline-none focus:ring-4 focus:ring-blue-300 font-normal rounded-lg text-xs px-8 py-3 text-center">
+      <div class="flex flex-col justify-end w-full md:w-auto">
+        <button (click)="saveQuery()" type="button" class="border text-white bg-[#3FA93D] hover:bg-[#36832F] focus:outline-none focus:ring-4 focus:ring-blue-300 font-normal rounded-lg text-xs px-2 sm:px-4 md:px-8 py-3 text-center w-full">
           Save Query
         </button>
       </div>
@@ -26,9 +25,9 @@
   <p class="text-md font-bold text-gray-900">
     Query Saved
   </p>
-  <div class="grid grid-cols-3 gap-4 border border-black p-4 rounded-lg">
+  <div class="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 border border-black p-4 rounded-lg">
     <!-- Saved Card Component -->
-    <div *ngFor="let queryItems of querySaved; index as i" id="toast-default" class="col-span-1 flex justify-between items-center w-full max-w-xs p-4 text-white bg-[#6582BA] rounded-lg shadow" role="alert">
+    <div *ngFor="let queryItems of querySaved; index as i" id="toast-default" class="col-span-1 flex justify-between items-center w-full p-4 text-white bg-[#6582BA] rounded-lg shadow" role="alert">
       <div class="ms-3 text-sm font-normal">{{ queryItems.queryName }}</div>
       <div class="flex items-center gap-3">
         <button (click)="toggleExport(i)" type="button" class="ms-auto -mx-1.5 -my-1.5 bg-[#6582BA] text-white hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8" aria-label="Download">

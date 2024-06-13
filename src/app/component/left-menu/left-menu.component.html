@@ -7,18 +7,18 @@
     <h3 class="text-md lg:text-lg text-gray-400">Menu</h3>
     <ul class="flex flex-col gap-4 text-black">
       <a routerLink="/dashboard">
-        <li [ngClass]="{'bg-gray-100': isActive('/dashboard'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-11 py-2 text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+        <li [ngClass]="{'bg-gray-100': isActive('/dashboard'), 'rounded-2xl': true}" class="flex gap-2 pr-2 lg:gap-4 pl-5 lg:pl-11 py-4 text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
           <img class="w-6 h-6" src="/assets/icon/dashboard.svg" alt="">
           Dashboard
         </li>
       </a>
       <a routerLink="/documentation">
-        <li [ngClass]="{'bg-gray-100': isActive('/documentation'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-11 py-2 text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+        <li [ngClass]="{'bg-gray-100': isActive('/documentation'), 'rounded-2xl': true}" class="flex gap-2 pl-5 pr-2 lg:gap-4 lg:pl-11 py-4 text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
           <img class="w-6 h-6" src="/assets/icon/document.svg" alt="">
           Documentation
         </li>
       </a>
-      <li *ngIf="!menuService.isSettingsDropdownVisible()" class="flex gap-2 px-2 lg:gap-4 lg:px-4 py-2 rounded-2xl text-md lg:text-lg hover:bg-gray-100 items-center cursor-pointer" (click)="toggleSettingsDropdown()">
+      <li *ngIf="!menuService.isSettingsDropdownVisible()" class="flex -m-2 gap-2 lg:gap-4 lg:px-4 py-4 rounded-2xl text-md lg:text-lg hover:bg-gray-100 items-center cursor-pointer" (click)="toggleSettingsDropdown()">
         <div class="flex items-center gap-2">
           <img class="w-6 h-6" src="/assets/icon/right-arrow.svg" alt="arrow">
           <img class="w-6 h-6" src="/assets/icon/settings.svg" alt="settings">
@@ -26,8 +26,8 @@
         Settings
       </li>
 
-      <div *ngIf="menuService.isSettingsDropdownVisible()" class="flex flex-col">
-        <li class="flex gap-2 px-2 lg:gap-4 lg:px-4 py-2 rounded-2xl text-md lg:text-lg hover:bg-gray-100 items-center cursor-pointer" (click)="toggleSettingsDropdown()">
+      <div *ngIf="menuService.isSettingsDropdownVisible()" class="-mb-4 flex flex-col">
+        <li class="flex -m-2 gap-2 lg:gap-4 lg:px-4 py-4 rounded-2xl text-md lg:text-lg hover:bg-gray-100 items-center cursor-pointer" (click)="toggleSettingsDropdown()">
           <div class="flex items-center gap-2">
             <img class="w-6 h-6" src="/assets/icon/down-arrow.svg" alt="arrow">
             <img class="w-6 h-6" src="/assets/icon/settings.svg" alt="settings">
@@ -37,14 +37,14 @@
 
         <ul class="flex flex-col gap-2 py-2">
           <a routerLink="settings/email" >
-            <li [ngClass]="{'bg-gray-100': isActive('/settings/email'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-14 py-2 text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+            <li [ngClass]="{'bg-gray-100': isActive('/settings/email'), 'rounded-2xl': true}" class="flex gap-2 pl-7 pr-2 lg:gap-4 lg:pl-14 py-4 sm:text-xs md:text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
               <img class="w-2 h-2" src="/assets/icon/bullet-point.svg" alt="">
               Email Configuration
             </li>
           </a>
 
           <a routerLink="settings/interval-rate" >
-            <li [ngClass]="{'bg-gray-100': isActive('/settings/interval-rate'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-14 py-2 text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+            <li [ngClass]="{'bg-gray-100': isActive('/settings/interval-rate'), 'rounded-2xl': true}" class="flex gap-2 pl-7 pr-2 lg:gap-4 lg:pl-14 py-4 sm:text-xs md:text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
               <img class="w-2 h-2" src="/assets/icon/bullet-point.svg" alt="">
               Interval Rate
             </li>
@@ -52,7 +52,7 @@
         </ul>
       </div>
       <a routerLink="/reporting">
-        <li [ngClass]="{'bg-gray-100': isActive('/reporting'), 'rounded-2xl': true}" class="flex gap-2 pl-9 pr-2 lg:gap-4 lg:pl-11 py-2 text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
+        <li [ngClass]="{'bg-gray-100': isActive('/reporting'), 'rounded-2xl': true}" class="flex gap-2 pl-5 pr-2 lg:gap-4 lg:pl-11 py-4 text-md lg:text-lg hover:bg-gray-100 hover:rounded-2xl items-center">
           <img class="w-6 h-6" src="/assets/icon/document.svg" alt="">
           Reporting
         </li>
