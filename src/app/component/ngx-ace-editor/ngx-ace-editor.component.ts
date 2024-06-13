@@ -40,4 +40,10 @@ export class NgxAceEditorComponent implements OnInit, AfterViewInit {
       this.textChange.emit(this.codeEditor.getValue());
     });
   }
+
+  public setValue(value: string) {
+    if (this.codeEditor) {
+      this.codeEditor.setValue(value, -1);  // -1 to move cursor to the start
+    }
+  }
 }

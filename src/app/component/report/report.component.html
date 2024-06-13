@@ -1,15 +1,22 @@
 <div class="flex flex-col gap-4 p-8">
+
+  <!-- Query Box Component -->
   <p class="text-md font-bold text-gray-900">
     Query
   </p>
   <div class="flex flex-col gap-4">
+
+    <!-- Code Editor Component, Mode: SQL -->
     <div>
       <app-ngx-ace-editor
-        [theme]="'textmateS'"
+        #editor
+        [theme]="'textmate'"
         [lang]="'sql'"
         (textChange)="handleTextChange($event)">
       </app-ngx-ace-editor>
     </div>
+
+    <!-- Save Query Component -->
     <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center sm:justify-end">
       <div class="w-full md:w-auto">
         <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900">Query Name</label>
@@ -22,6 +29,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Query Saved Component -->
   <p class="text-md font-bold text-gray-900">
     Query Saved
   </p>
@@ -45,9 +54,10 @@
       </div>
     </div>
   </div>
+
 </div>
 
-<!--DeleteDialog-->
+<!-- Delete Dialog -->
 <div *ngIf="showModalDelete" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
   <div class="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow">
     <button (click)="closeModalDelete()" type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
@@ -71,7 +81,7 @@
   </div>
 </div>
 
-
+<!-- Export Dialog -->
 <div *ngIf="showModalExport" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
   <div class="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow">
     <button (click)="closeModalExport()" type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">

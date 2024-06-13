@@ -14,6 +14,9 @@ export class AppComponent {
     '/documentation': 'Documentation',
     '/documentation/newfile': 'Documentation',
     '/settings': 'Setting',
+    '/reporting': 'Reporting',
+    '/settings/email': 'Setting',
+    '/settings/interval-rate': 'Setting',
     // Add more routes and titles as needed
   };
   constructor(private router: Router) {}
@@ -25,6 +28,11 @@ export class AppComponent {
       this.title = this.titles[event.urlAfterRedirects] || 'API Monitoring Dashboard';
     });
   }
+
+  setTitle(newTitle: string) {
+    this.title = newTitle;
+  }
+
   isMenuOpen = false;
 
   toggleMenu() {

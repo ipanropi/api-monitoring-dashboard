@@ -45,7 +45,8 @@
   </div>
 </div>
 
-<div *ngIf="isEditing || isAdding" class="flex flex-col gap-4 p-8">
+<!-- Larger device design for adding or editing email -->
+<div *ngIf="isEditing || isAdding" class="hidden sm:flex flex-col gap-4 p-8">
   <div class="flex flex-col gap-4">
     <div class="flex justify-between items-center">
       <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
@@ -73,6 +74,36 @@
   </div>
 </div>
 
+<!-- Mobile Design for adding or editing email-->
+<div *ngIf="isEditing || isAdding" class="flex sm:hidden flex-col gap-4 p-8">
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 sm:flex-row justify-between items-center">
+      <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
+        {{ isEditing ? 'Edit Email' : 'Add New Email' }}
+      </h3>
+    </div>
+    <div [formGroup]="emailForm" class="flex flex-col w-full sm:w-auto">
+      <label for="email" class="block mb-2 text-sm font-normal text-gray-900">Your Email</label>
+      <div class="relative mb-2">
+        <input formControlName="email" type="text" id="email" class="w-full sm:w-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/5 ps-2.5 p-2.5 " placeholder="abc@gmail.com">
+        <div *ngIf="emailForm?.invalid && (emailForm?.dirty || emailForm?.touched)" class="text-red-600 text-sm">
+          <div *ngIf="emailForm?.errors?.['required']">Email is required</div>
+          <div *ngIf="emailForm?.errors?.['email']">Invalid email address</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-2">
+      <button (click)="isEditing ? toggleEdit() : toggleAdd()" type="button" class="text-white bg-[#FA6868] hover:bg-[#E05A5A] focus:outline-none focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-xs px-8 py-2 text-center">
+        Cancel
+      </button>
+      <button (click)="onSubmit()" type="button" class="text-white bg-[#3FA93D] hover:bg-[#36832F] focus:outline-none focus:ring-4 focus:ring-blue-300 font-light rounded-lg text-xs px-8 py-2 text-center">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Dialog for confirmation of deletion from user -->
 <div *ngIf="showModalDelete" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
   <div id="popup-modal" class="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow">
     <button (click)="closeModal()" type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">

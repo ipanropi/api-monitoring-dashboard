@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppComponent} from "../../app.component";
 
 interface IntervalData {
   tools: string;
@@ -16,7 +17,6 @@ export class IntervalRateComponent implements OnInit {
   currentData: IntervalData | null = null;
   currentIndex: number | null = null;
   isEditing: boolean = false;
-  isAdding: boolean = false;
   intervalData: IntervalData[] = [
     {tools: "Service Status & Response Time", interval: "Cron Expression", lastUpdated: "25/03/2024"},
     {tools: "HTTPS Status Code", interval: "Cron Expression", lastUpdated: "25/03/2024"},
@@ -28,6 +28,7 @@ export class IntervalRateComponent implements OnInit {
     this.isEditing = !this.isEditing;
     this.currentData = data ? { ...data } : null; // create a copy of the data to edit
     this.currentIndex = index;
+    this.updateTitle()
   }
 
   saveChanges() {
@@ -37,10 +38,15 @@ export class IntervalRateComponent implements OnInit {
     }
   }
 
-  toggleAdd() {
-    this.isAdding = !this.isAdding;
+  updateTitle() {
+    if (this.isEditing) {
+      this.appComponent.setTitle('Interval Rate');
+    } else {
+      this.appComponent.setTitle('Settings');
+    }
   }
-  constructor() { }
+
+  constructor(private appComponent: AppComponent) { }
 
   ngOnInit(): void {
   }

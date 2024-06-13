@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {NgxAceEditorComponent} from "../ngx-ace-editor/ngx-ace-editor.component";
 
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent implements OnInit {
+export class ReportComponent implements OnInit, AfterViewInit {
+  @ViewChild('editor') editor: NgxAceEditorComponent | undefined;
   currentDeleteIndex: number = 0;
   currentExportIndex: number = 0;
   isDeleting: boolean = false;
@@ -15,11 +17,11 @@ export class ReportComponent implements OnInit {
   queryText: string = '';
   queryName: string = '';
   querySaved: any[] = [
-    {queryName: "Customer Report", queryText: "select * from table1"},
-    {queryName: "BMW Report", queryText: "select * from table2"},
-    {queryName: "AIG Report", queryText: "select * from table3"},
-    {queryName: "Myvi Report", queryText: "select * from table3"},
-    {queryName: "Honda Report", queryText: "select * from table3"},
+    { queryName: "Customer Report", queryText: "select * from table1" },
+    { queryName: "BMW Report", queryText: "select * from table2" },
+    { queryName: "AIG Report", queryText: "select * from table3" },
+    { queryName: "Myvi Report", queryText: "select * from table3" },
+    { queryName: "Honda Report", queryText: "select * from table3" },
   ];
 
   handleTextChange(newText: string) {
@@ -29,30 +31,40 @@ export class ReportComponent implements OnInit {
 
   saveQuery() {
     if (this.queryName && this.queryText) {
-      this.querySaved.push({queryName: this.queryName, queryText: this.queryText});
+      this.querySaved.push({ queryName: this.queryName, queryText: this.queryText });
       this.queryName = '';
       this.queryText = '';
+      this.clearEditor();
+    }
+  }
+
+  clearEditor() {
+    if (this.editor) {
+      this.editor.setValue('');
+      console.log('Editor cleared');
+    } else {
+      console.log('Editor instance not found');
     }
   }
 
   toggleDelete(index: number) {
     this.isDeleting = !this.isDeleting;
-    this.showModalDelete = true
+    this.showModalDelete = true;
     this.currentDeleteIndex = index;
   }
 
-  confirmDelete(){
+  confirmDelete() {
     this.querySaved.splice(this.currentDeleteIndex, 1);
     this.closeModalDelete();
   }
 
-  toggleExport(index: number){
+  toggleExport(index: number) {
     this.isExporting = !this.isExporting;
     this.showModalExport = !this.showModalExport;
     this.currentExportIndex = index;
   }
 
-  confirmExport(){
+  confirmExport() {
     this.closeModalExport();
   }
 
@@ -60,8 +72,12 @@ export class ReportComponent implements OnInit {
     this.showModalDelete = false;
   }
 
-  closeModalExport(){
+  closeModalExport() {
     this.showModalExport = false;
+  }
+
+  ngAfterViewInit() {
+    console.log('Editor instance:', this.editor);
   }
 
   constructor() { }

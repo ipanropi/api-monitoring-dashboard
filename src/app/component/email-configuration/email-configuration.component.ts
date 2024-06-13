@@ -1,6 +1,6 @@
-// Email Configuration Component TypeScript
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {AppComponent} from "../../app.component";
 
 interface Email {
   email: string;
@@ -23,25 +23,39 @@ export class EmailConfigurationComponent implements OnInit {
     {email: 'johndoe@57codebox.com', lastUpdated: '25/03/2024'},
     {email: 'ahmad@57codebox.com', lastUpdated: '25/03/2024'},
     {email: 'siti@57codebox.com', lastUpdated: '25/03/2024'},
-  ]
+  ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private appComponent: AppComponent) {
     this.emailForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateTitle();
+  }
+
+  updateTitle() {
+    if (this.isEditing) {
+      this.appComponent.setTitle('Email Configuration');
+    } else if (this.isAdding) {
+      this.appComponent.setTitle('Add New Email');
+    } else {
+      this.appComponent.setTitle('Settings');
+    }
+  }
 
   toggleAdd() {
     this.isAdding = !this.isAdding;
     this.emailForm.reset();
+    this.updateTitle();
   }
 
   toggleEdit() {
     this.isEditing = !this.isEditing;
     this.currentEditIndex = null;
     this.emailForm.reset();
+    this.updateTitle();
   }
 
   startEdit(index: number) {
@@ -50,6 +64,7 @@ export class EmailConfigurationComponent implements OnInit {
     this.emailForm.patchValue({
       email: this.emails[index].email
     });
+    this.updateTitle();
   }
 
   startDelete(index: number) {
@@ -80,6 +95,7 @@ export class EmailConfigurationComponent implements OnInit {
         this.emails[this.currentEditIndex] = { ...emailData, lastUpdated: currentDate };
         this.toggleEdit();
       }
+      this.updateTitle();
     } else {
       console.log('Form is invalid');
     }
