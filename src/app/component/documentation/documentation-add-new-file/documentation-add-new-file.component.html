@@ -5,12 +5,12 @@
             <a routerLink="/documentation">
                 <button class="btn cancel-btn">Cancel</button>
             </a>
-            <button class="btn submit-btn">Submit</button>
+            <button (click)="onSubmit()" class="btn submit-btn">Submit</button>
         </div>
     </div>
     <div>
         <p>File Name</p>
-        <input type="text" placeholder="File Name" class="text-area">
+        <input type="text" [(ngModel)]="documentName" placeholder="File Name" class="text-area">
     </div>
 
     <div>

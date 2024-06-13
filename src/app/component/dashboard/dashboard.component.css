@@ -72,6 +72,9 @@
       
       .item4 {
         grid-column: span 1; /* Take one-third of the width */
+        .chart-container{
+          width: 100%;
+        }
       }
       
       .item5 {
@@ -128,5 +131,7 @@
 
     .white{
       color: #FFFFFF;
+    }
+    .highcharts-point {
     }
 }

@@ -4,32 +4,39 @@
                 <div class="m-2">Add New</div>
             </button>
     </div>
-    <table class="table-fixed">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>File Name</th>
-                <th>Last Uploaded</th>
-                <th>Action</th>
-            </tr>  
-        </thead>
-        <tbody>
-            <tr *ngFor="let document of documentList; let i=index;">
-                <td>{{ i + 1 }}</td>
-                <td>{{ document.FileName }}</td>
-                <td>{{ document.LastUploaded }}</td>
-                <td style="display: flex; gap: 5px;">
-                    <img src="/assets/icon/download.svg" alt="">
-                    <a routerLink="/documentation/newfile">
+    <div class="relative overflow-x-auto">
+      <table class="table-fixed">
+          <thead>
+              <tr>
+                  <th>No</th>
+                  <th>File Name</th>
+                  <th>Last Uploaded</th>
+                  <th>Action</th>
+              </tr>  
+          </thead>
+          <tbody>
+              <tr *ngFor="let document of documentList; let i=index;">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ document.documentName }}</td>
+                  <td>{{ document.uploadedDate }}</td>
+                  <td style="display: flex; gap: 5px;">
+                    <button>
+                      <img src="/assets/icon/download.svg" alt="">
+                    </button>
+                    <button>
+                      <a routerLink="/documentation/newfile">
                         <img src="/assets/icon/upload.svg" alt="">
                     </a>
-                    <img (click)="onDelete()" src="/assets/icon/delete.svg" alt="">
-                </td>
-            </tr>
-        </tbody>
+                    </button>
+                      <button>
+                        <img (click)="onDelete()" src="/assets/icon/delete.svg" alt="">
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
 
-    </table>
-    
+      </table>
+    </div>
 </div>
 <div *ngIf="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
     <div id="popup-modal" class="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow">
