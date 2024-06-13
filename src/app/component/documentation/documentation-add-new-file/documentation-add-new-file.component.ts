@@ -12,9 +12,11 @@ import { DatePipe } from '@angular/common';
   ]
 })
 export class DocumentationAddNewFileComponent implements OnInit {
+  editDocument:any;
   documentName:any;
   selectedFile: File | undefined;
   
+
   constructor(
     private router: Router,
     private sharedService: SharedService,
@@ -22,11 +24,20 @@ export class DocumentationAddNewFileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.updateFileNameDisplay();
+    this.editDocument = this.sharedService.getEditDocument();
+    if(this.editDocument !== undefined){
+      this.documentName = this.editDocument[1].documentName;
+      // console.log("Document Name",this.documentName)
+      this.selectedFile = this.editDocument[1].file;
+    }
   }
 
   onSubmit(){
-    this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File);
+    if(this.editDocument == undefined){
+      this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File);
+    }else{
+      this.sharedService.setEditDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File, this.editDocument[0].editIndex);
+    }
     this.router.navigate(['documentation']);
   }
 

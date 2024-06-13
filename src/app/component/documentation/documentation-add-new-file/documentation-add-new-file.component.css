@@ -66,8 +66,8 @@
     }
     
     img {
-        width: 24px; /* Adjust the width and height as needed */
-        height: 24px;
+        width: 36px; /* Adjust the width and height as needed */
+        height: 36px;
         border: 1px solid #ccc; /* Example border styling */
         padding: 4px; /* Example padding */
     }
