@@ -22,10 +22,11 @@ export class DocumentationAddNewFileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.updateFileNameDisplay();
   }
 
   onSubmit(){
-    this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'));
+    this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File);
     this.router.navigate(['documentation']);
   }
 
@@ -40,7 +41,7 @@ export class DocumentationAddNewFileComponent implements OnInit {
       this.documentName = this.selectedFile.name;
     } else {
         if (this.documentName) {
-          this.documentName = 'No file selected';
+          this.documentName = '';
         }
     }
   }
