@@ -15,6 +15,10 @@
 
     <div>
         <p>Upload</p>
-        <img src="/assets/icon/upload.svg" alt="">
+        <label for="chooseFile" class="file-upload">
+            <input id="chooseFile" type="file" (change)="onFileSelected($event)"/>
+            <img src="/assets/icon/upload.svg" alt="Upload Icon">
+        </label>
+        <span id="fileNameDisplay">No file selected</span>
     </div>
 </div>

@@ -55,4 +55,20 @@
         font-size: 18px;
         font-weight: bold;
     }
+    label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer; /* Ensure the cursor changes to pointer on hover */
+    }
+    
+    #chooseFile {
+        display: none; /* Hide the actual file input */
+    }
+    
+    img {
+        width: 24px; /* Adjust the width and height as needed */
+        height: 24px;
+        border: 1px solid #ccc; /* Example border styling */
+        padding: 4px; /* Example padding */
+    }
 }
