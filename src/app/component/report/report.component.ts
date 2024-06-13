@@ -6,22 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
+  currentDeleteIndex: number = 0;
+  currentExportIndex: number = 0;
   isDeleting: boolean = false;
-  showModal: boolean = false;
+  isExporting: boolean = false;
+  showModalDelete: boolean = false;
+  showModalExport: boolean = false;
   queryText: string = '';
   queryName: string = '';
-  handleTextChange(newText: string) {
-    console.log('Editor content:', newText);
-    // You can handle the new text here, for example, save it to a variable or process it further
-    this.queryText = newText;
-  }
-
-  saveQuery() {
-    console.log(this.queryText);
-    console.log(this.queryName);
-
-  }
-
   querySaved: any[] = [
     {queryName: "Customer Report", queryText: "select * from table1"},
     {queryName: "BMW Report", queryText: "select * from table2"},
@@ -30,20 +22,49 @@ export class ReportComponent implements OnInit {
     {queryName: "Honda Report", queryText: "select * from table3"},
   ];
 
-  toggleDelete() {
+  handleTextChange(newText: string) {
+    console.log('Editor content:', newText);
+    this.queryText = newText;
+  }
+
+  saveQuery() {
+    if (this.queryName && this.queryText) {
+      this.querySaved.push({queryName: this.queryName, queryText: this.queryText});
+      this.queryName = '';
+      this.queryText = '';
+    }
+  }
+
+  toggleDelete(index: number) {
     this.isDeleting = !this.isDeleting;
-    this.showModal = true; // Show modal when delete is toggled
+    this.showModalDelete = true
+    this.currentDeleteIndex = index;
   }
 
-  closeModal() {
-    this.showModal = false; // Hide modal
+  confirmDelete(){
+    this.querySaved.splice(this.currentDeleteIndex, 1);
+    this.closeModalDelete();
   }
 
+  toggleExport(index: number){
+    this.isExporting = !this.isExporting;
+    this.showModalExport = !this.showModalExport;
+    this.currentExportIndex = index;
+  }
 
+  confirmExport(){
+    this.closeModalExport();
+  }
+
+  closeModalDelete() {
+    this.showModalDelete = false;
+  }
+
+  closeModalExport(){
+    this.showModalExport = false;
+  }
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

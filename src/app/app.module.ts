@@ -15,6 +15,7 @@ import {RouterModule} from "@angular/router";
 import { ReportComponent } from './component/report/report.component';
 import {FormsModule} from "@angular/forms";
 import { NgxAceEditorComponent } from './component/ngx-ace-editor/ngx-ace-editor.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NgxAceEditorComponent } from './component/ngx-ace-editor/ngx-ace-editor
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
