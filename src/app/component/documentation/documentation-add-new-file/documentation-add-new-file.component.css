@@ -39,11 +39,12 @@
     }
 
     input{
-        width: 33%;
+        width: 50%;
         min-width: 200px;
         height: 35px;
         border-radius: 15px;
         padding-left: 15px;
+        font-size: 12px;
     }
 
     p{
