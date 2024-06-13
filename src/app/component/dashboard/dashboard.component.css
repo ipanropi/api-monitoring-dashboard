@@ -11,7 +11,7 @@
         border: 1px solid #ccc;
         padding: 20px;
       }
-      
+
       .item1 {
         grid-column: span 4; /* Full width for div1 */
         .status-container{
@@ -31,7 +31,7 @@
             }
         }
       }
-      
+
       .item2 {
         grid-column: span 1; /* Take one-third of the width */
         .response-time-container{
@@ -50,7 +50,7 @@
           }
         }
       }
-      
+
       .item3 {
         grid-column: span 2; /* Take one-third of the width */
         .response-time-container{
@@ -69,18 +69,18 @@
           }
         }
       }
-      
+
       .item4 {
         grid-column: span 1; /* Take one-third of the width */
         .chart-container{
           width: 100%;
         }
       }
-      
+
       .item5 {
         grid-column: span 2; /* Take two-thirds of the width */
       }
-      
+
       .item6 {
         grid-column: span 2; /* Take one-third of the width */
         .stat-container{
@@ -119,7 +119,7 @@
     h3{
 
     }
-    
+
 
     .text-center{
         text-align: center;
