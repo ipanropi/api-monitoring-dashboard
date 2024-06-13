@@ -41,19 +41,18 @@ export class DocumentationComponent implements OnInit {
     this.closeModal();
   }
 
-  toggleDelete() {
-
-  }
-
   closeModal() {
     this.showModal = false; // Hide modal
   }
 
   editDocument(index: number){
     this.sharedservice.editDocumentRequest(index);
+    this.router.navigate(['documentation/newfile']);
   }
 
   downloadFile(index:number) {
+    console.log("Before Request");
+
     if (this.documentList[index].file) {
       const blob = new Blob([this.documentList[index].file], { type: this.documentList[index].file.type });
       const url = window.URL.createObjectURL(blob);
