@@ -96,41 +96,60 @@
         </div>
   <div class="grid-item item5 col-span-4 lg:col-span-4">
             <h1>Alert Emails</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Subject</th>
-                        <th>Recipient</th>
-                        <th>Date Sent</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let email of alertEmailList; let i = index">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ email.Subject }}</td>
-                        <td>{{ email.Recipient }}</td>
-                        <td>{{ email.DateSent }}</td>
-                      </tr>
-                </tbody>
-            </table>
+    <div class="relative overflow-x-auto sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-black">
+        <thead class="text-xs text-black uppercase bg-[#D9D9D9]/25">
+        <tr>
+          <th scope="col" class="border-r px-6 py-3 rounded-s-lg font-normal">
+            No
+          </th>
+          <th scope="col" class="border-r px-6 py-3 font-normal">
+            Subject
+          </th>
+          <th scope="col" class="border-r px-6 py-3 font-normal">
+            Recipient
+          </th>
+          <th scope="col" class="px-6 py-3 rounded-e-lg font-normal">
+            Date Sent
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let email of alertEmailList; let i = index" class="bg-white">
+          <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+            {{ i + 1 }}
+          </th>
+          <td class="px-6 py-4">
+            {{ email.Subject }}
+          </td>
+          <td class="px-6 py-4">
+            {{ email.Recipient }}
+          </td>
+          <td class="px-6 py-4">
+            {{ email.DateSent }}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
         </div>
   <div class="grid-item item6 col-span-4 lg:col-span-4">
             <h1>Error Rates</h1>
             <div class="grid grid-cols-5 stat-container gap-4">
-                <div class="stat create-update col-span-5 md:col-span-1">
+                <div class="p-4 stat create-update col-span-1 lg:py-8 md:col-span-1">
                     <h2 class="text-center md:text-left">0</h2>
                 </div>
-                <div class="stat get-case-assistance col-span-5 md:col-span-1">
+                <div class="p-4 stat get-case-assistance col-span-1 lg:py-8 md:col-span-1">
                     <h2 class="text-center md:text-left">0</h2>
                 </div>
-                <div class="stat create-token col-span-5 md:col-span-1">
+                <div class="p-4 stat create-token col-span-1 lg:py-8 md:col-span-1">
                     <h2 class="text-center md:text-left">3</h2>
                 </div>
-                <div class="stat check-health col-span-5 md:col-span-1">
+                <div class="p-4 stat check-health col-span-1 lg:py-8 md:col-span-1">
                     <h2 class="text-center md:text-left">6</h2>
                 </div>
-                <div class="stat get-tracking col-span-5 md:col-span-1">
+                <div class="p-4 stat get-tracking col-span-1 lg:py-8 md:col-span-1">
                     <h2 class="text-center md:text-left">2</h2>
                 </div>
             </div>

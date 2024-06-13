@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
       },
     },
     chart: {
-      type: 'column',
+      type: 'column', // Define type at chart level
       width: null,
       height: null,
     },
@@ -73,42 +73,47 @@ export class DashboardComponent implements OnInit {
     plotOptions: {
       column: {
         borderWidth: 0,
-        pointWidth: 50,
+        pointWidth: 20,
         stacking: 'normal',
       }
     },
     series: this.data as Highcharts.SeriesOptionsType[], // Manually declare the series without casting
     responsive: {
-      rules: [
-        {
-          condition: {
-            maxWidth: 500 // Adjust this value based on your desired breakpoint
-          },
-          chartOptions: {
-            chart: {
-              type: 'bar' // Change chart type to 'bar' for horizontal bars
-            },
-            plotOptions: {
-              bar: {
-                borderWidth: 0,
-                pointWidth: 50,
-                stacking: 'normal'
-              }
-            },
-            yAxis: {
-              categories: this.categories, // Use categories for y-axis labels
-              title: {
-                text: null // Remove y-axis title
-              }
-            },
-            xAxis: {
-              title: {
-                text: 'Usage Count' // Add x-axis title
-              }
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          plotOptions: {
+            column: {
+              pointWidth: 10 // Smaller point width for small screens
             }
           }
         }
-      ]
+      }, {
+        condition: {
+          minWidth: 501,
+          maxWidth: 800
+        },
+        chartOptions: {
+          plotOptions: {
+            column: {
+              pointWidth: 30 // Medium point width for medium screens
+            }
+          }
+        }
+      }, {
+        condition: {
+          minWidth: 801
+        },
+        chartOptions: {
+          plotOptions: {
+            column: {
+              pointWidth: 50 // Default point width for large screens
+            }
+          }
+        }
+      }]
     }
   };
 
@@ -116,5 +121,4 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
