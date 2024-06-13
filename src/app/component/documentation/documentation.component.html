@@ -20,7 +20,7 @@
                   <td>{{ document.documentName }}</td>
                   <td>{{ document.uploadedDate }}</td>
                   <td style="display: flex; gap: 5px;">
-                    <button>
+                    <button (click)="downloadFile(i)">
                       <img src="/assets/icon/download.svg" alt="">
                     </button>
                     <button (clcik)="editDocument(i)">

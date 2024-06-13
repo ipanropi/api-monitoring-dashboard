@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 interface Document {
     documentName: string;
     uploadedDate: any;
+    file: File
   }
   @Injectable({
     providedIn: 'root'
@@ -12,12 +13,11 @@ interface Document {
   
 export class SharedService {
     private documents: Document[] = [
-        {documentName: "BMW API Document V.0.01", uploadedDate: "23/05/2024"},
 
     ];
 
-  setDocument(documentName: string, uploadedDate: any) {
-    this.documents.push({ documentName: documentName, uploadedDate: uploadedDate });
+  setDocument(documentName: string, uploadedDate: any, file:File) {
+    this.documents.push({ documentName: documentName, uploadedDate: uploadedDate, file: file });
     console.log("Shared Documents",this.documents)
   }
 
