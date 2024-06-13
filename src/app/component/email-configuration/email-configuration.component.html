@@ -1,5 +1,5 @@
 <!-- Email Configuration Component HTML -->
-<div *ngIf="!isEditing && !isAdding" class="flex flex-col gap-4 p-8">
+<div *ngIf="!isEditing && !isAdding" class="flex flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex justify-between items-center">
     <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">Email Configuration</h3>
     <button (click)="toggleAdd()" type="button" class="text-white bg-[#4994BE] hover:bg-[#3B7BA1] focus:outline-none focus:ring-4 focus:ring-blue-300 font-light rounded-full text-xs px-4 py-2 text-center">
@@ -45,8 +45,8 @@
   </div>
 </div>
 
-<!-- Larger device design for adding or editing email -->
-<div *ngIf="isEditing || isAdding" class="hidden sm:flex flex-col gap-4 p-8">
+<!-- Larger Device design for adding or editing email -->
+<div *ngIf="isEditing || isAdding" class="hidden sm:flex flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex flex-col gap-4">
     <div class="flex justify-between items-center">
       <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
@@ -74,10 +74,10 @@
   </div>
 </div>
 
-<!-- Mobile Design for adding or editing email-->
-<div *ngIf="isEditing || isAdding" class="flex sm:hidden flex-col gap-4 p-8">
+<!-- Small Device Design for adding or editing email-->
+<div *ngIf="isEditing || isAdding" class="flex sm:hidden flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-4 sm:flex-row justify-between items-center">
+    <div class="flex flex-col gap-4 sm:flex-row justify-between items-start">
       <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
         {{ isEditing ? 'Edit Email' : 'Add New Email' }}
       </h3>

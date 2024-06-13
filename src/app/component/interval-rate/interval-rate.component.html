@@ -1,5 +1,5 @@
 <!-- Table Display of all interval data -->
-<div *ngIf="!isEditing" class="flex flex-col gap-4 p-8">
+<div *ngIf="!isEditing" class="flex flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex justify-between items-center">
     <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
       Interval Rate
@@ -50,7 +50,7 @@
 </div>
 
 <!-- Edit Component Larger Screen Device -->
-<div *ngIf="isEditing && currentData" class="hidden sm:flex flex-col gap-4 p-8">
+<div *ngIf="isEditing && currentData" class="hidden sm:flex flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex flex-col gap-4">
     <div class="flex gap-4 flex-col sm:flex-row sm:justify-between items-center">
       <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
@@ -75,10 +75,10 @@
 </div>
 
 <!-- Edit Component Small Screen Device -->
-<div *ngIf="isEditing && currentData" class="flex sm:hidden flex-col gap-4 p-8">
+<div *ngIf="isEditing && currentData" class="flex sm:hidden flex-col gap-4 py-8 px-4 sm:p-8">
   <div class="flex flex-col gap-4">
-    <div class="flex gap-4 flex-col sm:flex-row sm:justify-between items-center">
-      <h3 class="text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
+    <div class="flex gap-4 flex-col sm:flex-row sm:justify-between items-start">
+      <h3 class="text-left text-lg font-semibold leading-none tracking-tight text-gray-900 md:text-xl">
         Service Status & Response Time
       </h3>
     </div>
