@@ -60,7 +60,7 @@ export class DocumentationComponent implements OnInit {
       // Create a link element and click it programmatically to trigger the download
       const a = document.createElement('a');
       a.href = url;
-      a.download = this.documentList[index].file.name; // Specify file name
+      a.download = this.documentList[index].documentName; // Specify file name
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

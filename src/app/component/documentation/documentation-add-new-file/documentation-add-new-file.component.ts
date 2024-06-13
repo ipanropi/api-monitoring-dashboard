@@ -16,6 +16,7 @@ export class DocumentationAddNewFileComponent implements OnInit {
   documentName:any;
   selectedFile: File | undefined;
   
+  showModal:boolean=false;
 
   constructor(
     private router: Router,
@@ -33,12 +34,17 @@ export class DocumentationAddNewFileComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.editDocument == undefined){
-      this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File);
-    }else{
-      this.sharedService.setEditDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File, this.editDocument[0].editIndex);
+    if(this.documentName && this.selectedFile){
+      if(this.sharedService.checkValidName(this.documentName)){
+        if(this.editDocument == undefined){
+          this.sharedService.setDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File);
+        }else{
+          this.sharedService.setEditDocument(this.documentName, this.datePipe.transform(new Date(), 'dd/MM/yyyy'), this.selectedFile as File, this.editDocument[0].editIndex);
+        }
+        this.router.navigate(['documentation']);
+      }
     }
-    this.router.navigate(['documentation']);
+    this.showModal=true;
   }
 
   onFileSelected(event: any) {
@@ -56,4 +62,8 @@ export class DocumentationAddNewFileComponent implements OnInit {
         }
     }
   }
+  closeModal() {
+    this.showModal = false; // Hide modal
+  }
+
 }
