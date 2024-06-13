@@ -35,12 +35,12 @@ export class DocumentationAddNewFileComponent implements OnInit {
 }
 
   updateFileNameDisplay() {
-    const fileNameDisplay = document.getElementById('fileNameDisplay') as HTMLElement;
-    if (fileNameDisplay && this.selectedFile) {
-        fileNameDisplay.textContent = this.selectedFile.name;
+    this.documentName = document.getElementById('fileNameDisplay') as HTMLElement;
+    if (this.documentName && this.selectedFile) {
+      this.documentName = this.selectedFile.name;
     } else {
-        if (fileNameDisplay) {
-            fileNameDisplay.textContent = 'No file selected';
+        if (this.documentName) {
+          this.documentName = 'No file selected';
         }
     }
   }

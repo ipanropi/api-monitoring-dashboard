@@ -10,7 +10,7 @@
     </div>
     <div>
         <p>File Name</p>
-        <input type="text" [(ngModel)]="documentName" placeholder="File Name" class="text-area">
+        <input type="text" [(ngModel)]="documentName" placeholder="File Name" class="text-area" id="fileNameDisplay">
     </div>
 
     <div>
@@ -19,6 +19,5 @@
             <input id="chooseFile" type="file" (change)="onFileSelected($event)"/>
             <img src="/assets/icon/upload.svg" alt="Upload Icon">
         </label>
-        <span id="fileNameDisplay">No file selected</span>
     </div>
 </div>
