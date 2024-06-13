@@ -53,7 +53,9 @@ export class DashboardComponent implements OnInit {
         },
     },
     chart: {
-      type: 'column' // Define type at chart level
+      type: 'column', // Define type at chart level
+      width: null,
+      height: null,
     },
     title: {
       text: ''

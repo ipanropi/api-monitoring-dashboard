@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from '../../shared.service';
 
+
+interface Document {
+  documentName: string;
+  uploadedDate: Date;
+}
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
   styleUrls: ['./documentation.component.css']
 })
 export class DocumentationComponent implements OnInit {
-  documentList=[
-    {FileName: "BMW API Document V.0.01", LastUploaded: "25/03/2024"}
-
-  ];
+  documentList:Document[]=[];
   isDeleting: boolean = false;
   showModal: boolean = false; // State for modal visibility
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private sharedservice:SharedService
+  ) {}
 
   ngOnInit(): void {
+    this.documentList=this.sharedservice.getDocument();
   }
   goaddnew() {
     this.router.navigate(['documentation/newfile']);
