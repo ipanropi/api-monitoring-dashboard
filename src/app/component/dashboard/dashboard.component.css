@@ -10,6 +10,7 @@
     .grid-item {
         border: 1px solid #ccc;
         padding: 20px;
+        position: relative;
       }
 
       .item1 {
@@ -132,6 +133,7 @@
     .white{
       color: #FFFFFF;
     }
-    .highcharts-point {
+    .LastUpdate{
+      position: absolute;
     }
 }
