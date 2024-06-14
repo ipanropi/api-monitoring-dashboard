@@ -134,6 +134,8 @@
       color: #FFFFFF;
     }
     .LastUpdate{
+      font-style: italic;
       position: absolute;
+      font-size: 10px;
     }
 }
