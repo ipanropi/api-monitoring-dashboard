@@ -35,12 +35,13 @@ export class ReportComponent implements OnInit, AfterViewInit {
 
   saveQuery() {
     if (this.queryName && this.queryText) {
-      this.querySaved.push({ queryName: this.queryName, queryText: this.queryText });
+      this.querySaved.push({ queryName: this.queryName, report: this.convertToCSV(this.items) });
+      // this.querySaved.push({ queryName: this.queryName, queryText: this.queryText });
 
 
       // Download Query
       // Testing purpose, can change when finished
-      this.downloadCSV();
+      // this.downloadCSV();
       this.queryName = '';
       this.queryText = '';
       this.items = [];
@@ -77,6 +78,7 @@ export class ReportComponent implements OnInit, AfterViewInit {
   }
 
   confirmExport() {
+    this.downloadCSV(this.currentExportIndex);
     this.closeModalExport();
   }
 
@@ -141,8 +143,9 @@ export class ReportComponent implements OnInit, AfterViewInit {
     return [keys.join(','), ...csvContent].join('\n');
   }
 
-  downloadCSV() {
-    const csvContent = this.convertToCSV(this.items);
+  downloadCSV(index:number) {
+    // const csvContent = this.convertToCSV(this.items);
+    const csvContent = this.querySaved[index].report;
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');

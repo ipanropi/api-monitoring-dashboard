@@ -51,8 +51,6 @@ export class DocumentationComponent implements OnInit {
   }
 
   downloadFile(index:number) {
-    console.log("Before Request");
-
     if (this.documentList[index].file) {
       const blob = new Blob([this.documentList[index].file], { type: this.documentList[index].file.type });
       const url = window.URL.createObjectURL(blob);
