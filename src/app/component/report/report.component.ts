@@ -18,11 +18,11 @@ export class ReportComponent implements OnInit, AfterViewInit {
   queryText: string = '';
   queryName: string = '';
   querySaved: any[] = [
-    { queryName: "Customer Report", queryText: "select * from table1" },
-    { queryName: "BMW Report", queryText: "select * from table2" },
-    { queryName: "AIG Report", queryText: "select * from table3" },
-    { queryName: "Myvi Report", queryText: "select * from table3" },
-    { queryName: "Honda Report", queryText: "select * from table3" },
+    // { queryName: "Customer Report", queryText: "select * from table1" },
+    // { queryName: "BMW Report", queryText: "select * from table2" },
+    // { queryName: "AIG Report", queryText: "select * from table3" },
+    // { queryName: "Myvi Report", queryText: "select * from table3" },
+    // { queryName: "Honda Report", queryText: "select * from table3" },
   ];
   items: any[] = [];
   submmited: boolean = false;
@@ -150,7 +150,7 @@ export class ReportComponent implements OnInit, AfterViewInit {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href= url;
-    link.download = this.queryName;
+    link.download = this.querySaved[index].queryName;
     link.style.visibility = 'hidden';
     document.body.appendChild(link);
     link.click();
