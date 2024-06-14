@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers:[
+    DatePipe
+  ]
 })
 export class DashboardComponent implements OnInit {
+  LastUpdate: any="25/03/2024 11:30am";
+
+  last7DaysDates: string[] = [];
+  
   alertEmailList = [
     { Subject: "Create Token API - Status", Recipient: "putrashazrein@57codebox.com", DateSent: "25/03/2024" },
     { Subject: "Create Case API - Threshold", Recipient: "putrashazrein@57codebox.com", DateSent: "25/03/2024" }
@@ -61,7 +69,7 @@ export class DashboardComponent implements OnInit {
       text: ''
     },
     xAxis: {
-      categories: this.categories // Define your x-axis categories
+      categories: this.last7DaysDates // Define your x-axis categories
     },
     yAxis: {
       min: 0,
@@ -117,8 +125,25 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(
+    private datepipe: DatePipe,
+  ) { }
 
   ngOnInit(): void {
+    this.last7DaysDates = this.getLast7DaysDates();
+    console.log("Last 7 Day Dates =>", this.last7DaysDates);
+  }
+
+  getLast7DaysDates(): any[] {
+    const dates: any[] = [];
+    const today = new Date();
+    
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date();
+      date.setDate(today.getDate() - i);
+      dates.push(this.datepipe.transform(date,"dd/MM/yyyy"));
+    }
+    
+    return dates;
   }
 }
