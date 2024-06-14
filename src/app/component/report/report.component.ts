@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import {NgxAceEditorComponent} from "../ngx-ace-editor/ngx-ace-editor.component";
+import { NgxAceEditorComponent } from "../ngx-ace-editor/ngx-ace-editor.component";
+import { ApiService } from "../../service/api-service/api.service";
 
 @Component({
   selector: 'app-report',
@@ -23,6 +24,9 @@ export class ReportComponent implements OnInit, AfterViewInit {
     { queryName: "Myvi Report", queryText: "select * from table3" },
     { queryName: "Honda Report", queryText: "select * from table3" },
   ];
+  items: any[] = [];
+  submmited: boolean = false;
+  tableHeaders: { name: string, key: string }[] = [];
 
   handleTextChange(newText: string) {
     console.log('Editor content:', newText);
@@ -35,6 +39,8 @@ export class ReportComponent implements OnInit, AfterViewInit {
       this.queryName = '';
       this.queryText = '';
       this.clearEditor();
+      this.items = [];
+      this.submmited = false; // Reset submmited to false after saving the query
     }
   }
 
@@ -80,7 +86,39 @@ export class ReportComponent implements OnInit, AfterViewInit {
     console.log('Editor instance:', this.editor);
   }
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
+
+  getItems() {
+    const params = { queryText: this.queryText };
+    this.apiService.getQuery(params).subscribe(
+      (data: any[]) => {
+        this.items = data;
+        this.generateHeaders();
+        console.log(this.items);
+      },
+      error => {
+        console.error('Error fetching items', error);
+      }
+    );
+  }
+
+  generateQuery() {
+    this.getItems();
+    this.submmited = true; // Set submmited to true when the query is submitted
+  }
+
+  generateHeaders() {
+    if (this.items.length > 0) {
+      this.tableHeaders = Object.keys(this.items[0]).map(key => ({
+        name: this.capitalizeFirstLetter(key),
+        key: key
+      }));
+    }
+  }
+
+  capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   ngOnInit(): void { }
 }

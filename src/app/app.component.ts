@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ApiService } from './service/api-service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   title: string = '';
+
 
   private titles: { [key: string]: string } = {
     '/documentation': 'Documentation',
