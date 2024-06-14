@@ -36,11 +36,17 @@ export class ReportComponent implements OnInit, AfterViewInit {
   saveQuery() {
     if (this.queryName && this.queryText) {
       this.querySaved.push({ queryName: this.queryName, queryText: this.queryText });
+
+
+      // Download Query
+      // Testing purpose, can change when finished
+      this.downloadCSV();
       this.queryName = '';
       this.queryText = '';
-      this.clearEditor();
       this.items = [];
+      this.clearEditor();
       this.submmited = false; // Reset submmited to false after saving the query
+
     }
   }
 
@@ -121,4 +127,30 @@ export class ReportComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void { }
+
+  convertToCSV(items: any[]): string {
+    if (items.length === 0) {
+      return '';
+    }
+
+    const keys = Object.keys(items[0]);
+    const csvContent = items.map(item =>
+      keys.map(key => item[key]).join(',')
+    );
+
+    return [keys.join(','), ...csvContent].join('\n');
+  }
+
+  downloadCSV() {
+    const csvContent = this.convertToCSV(this.items);
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href= url;
+    link.download = this.queryName;
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }
